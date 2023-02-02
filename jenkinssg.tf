@@ -10,6 +10,14 @@ resource "aws_security_group" "jenkins_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
+    ingress {
+      description = "Allow secure access to the Jenkins Server"
+      from_port   = "443"
+      to_port     = "443"
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+  }
 
   ingress {
     description = "Allow access for the Jenkins Server"
